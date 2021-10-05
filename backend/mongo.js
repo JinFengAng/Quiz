@@ -33,6 +33,7 @@ async function insertMongo(data){
                   "Score": data.Score
                 }]}
     recordQuiz.insertOne(post);
+    quiz.close();
   }
 
   export default insertMongo;
