@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 import { Input, Form, Radio, Space, Button } from 'antd';
-import { useDispatch } from 'react-redux';
 import 'antd/dist/antd.css';
-
-import { createPost } from '../actions/posts'
+const url = 'http://localhost:5000/posts';
 
 function Quiz() {
     const [postData, setPostData] = useState({
@@ -30,12 +28,11 @@ function Quiz() {
         Q19: '', 
         Q20: '', 
     })
-    const dispatch = useDispatch();
-
+    
     const handleSubmit = (e) => {
-        dispatch(createPost(postData));
+        axios.post(url, postData); 
     }
-
+    
     return (
         <div className='pb-32 mx-auto'>
             <Form
@@ -88,7 +85,7 @@ function Quiz() {
                         </Space>
                     </Radio.Group>
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                     label='3)	Which of the following is required by K-means clustering?'
                     name='Q3'
                     rules={[{ required: true, message: "Please select an option!" }]}>
@@ -353,7 +350,7 @@ function Quiz() {
                             <Radio value={'D'}>d)	All of the Mentioned</Radio>
                         </Space>
                     </Radio.Group>
-                </Form.Item>
+                </Form.Item> */}
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         Submit
