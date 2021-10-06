@@ -85,7 +85,7 @@ function Quiz() {
                         </Space>
                     </Radio.Group>
                 </Form.Item>
-                {/* <Form.Item
+                <Form.Item
                     label='3)	Which of the following is required by K-means clustering?'
                     name='Q3'
                     rules={[{ required: true, message: "Please select an option!" }]}>
@@ -350,7 +350,7 @@ function Quiz() {
                             <Radio value={'D'}>d)	All of the Mentioned</Radio>
                         </Space>
                     </Radio.Group>
-                </Form.Item> */}
+                </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         Submit
