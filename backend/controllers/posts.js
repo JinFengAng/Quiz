@@ -11,8 +11,16 @@ export const getPosts = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-    const post = req.body
-    console.log(req.body.username);
+    const post = req.body;
+    var score = 0;
+    for (let i = 1; i < 3; i++) {
+        const data = eval('post.Q' + [i]);
+        if(data == data.toUpperCase()){
+            score = score + 1;
+        }
+    }
+    post.score = score;
+
     const newPost = new PostMessage(post);
     try {
         await newPost.save();
